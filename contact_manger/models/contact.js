@@ -1,20 +1,25 @@
-const mongoose =require("mongoose");
+const mongoose = require('mongoose');
+
 const contactSchema = new mongoose.Schema({
   fullName: {
     type: String,
     required: true,
+    trim: true
   },
-
   phones: {
-    type: [String],
-    default: [],
+    type: [String], 
+    default: []
+  },
+  socialMedia: {
+    facebook: { type: String,
+    default: ""
   },
 
-  socialMedia: {
-    facebook: String,
-    linkedin: String,
-    twitter: String,
-  },
+    linkedin: { 
+      type: String,
+       default: "" 
+      }
+  }
 });
 
-module.exports = mongoose.model("Contact", contactSchema);
+module.exports = mongoose.model('Contact', contactSchema);

@@ -28,10 +28,10 @@ async function dbConnection() {
 dbConnection();
 
 
-// ================= Require Models =================
+//  Require Models 
 const Product = require("./models/Product");
 
-// ================= Routes =================
+
 
 // post
 app.post("/api/products", async (req, res) => {
@@ -55,7 +55,7 @@ app.post("/api/products", async (req, res) => {
 // get
 app.get("/api/products", async (req, res) => {
   try {
-    // لو فيه query زي ?category=Electronics
+  
     const products = await Product.find(req.query);
 
     res.status(200).json({
@@ -71,7 +71,7 @@ app.get("/api/products", async (req, res) => {
   }
 });
 
-// GET Books with populate
+// get
 app.get("/api/books", async (req, res) => {
   try {
     const books = await Book.find().populate("author");
@@ -86,7 +86,7 @@ app.get("/api/books", async (req, res) => {
   }
 });
 
-// ================= Run Server =================
+// server run
 app.listen(PORT, () => {
   console.log(`Server Running At Port ${PORT}`);
 });

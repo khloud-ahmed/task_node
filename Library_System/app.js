@@ -31,9 +31,6 @@ dbConnection();
 const Author = require("./models/Author");
 const Book = require("./models/Book");
 
-
-// ================= Routes =================
-
 // POST Author
 app.post("/api/authors", async (req, res) => {
   try {
@@ -64,7 +61,7 @@ app.post("/api/Book", async (req, res) => {
   }
 });
 
-// GET Books with populate
+// get 
 app.get("/api/Book", async (req, res) => {
   try {
     const books = await Book.find().populate("author");
